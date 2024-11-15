@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت DNS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>پنل مدیریت DNS</h1>
+    <a href="{{ url_for('add_dns') }}">افزودن DNS جدید</a>
+    <table>
+        <thead>
+            <tr>
+                <th>DNS</th>
+                <th>تاریخ انقضا</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in dns_data['dns_records'] %}
+            <tr>
+                <td>{{ record['dns'] }}</td>
+                <td>{{ record['expire_date'] }}</td>
+                <td>{{ record['status'] }}</td>
+                <td>
+                    <a href="{{ url_for('delete_dns', index=loop.index0) }}">حذف</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

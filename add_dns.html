@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افزودن DNS جدید</title>
+</head>
+<body>
+    <h1>افزودن DNS جدید</h1>
+    <form method="POST">
+        <label for="dns">DNS:</label>
+        <input type="text" id="dns" name="dns" required><br><br>
+        <label for="expire_date">تاریخ انقضا (YYYY-MM-DD):</label>
+        <input type="text" id="expire_date" name="expire_date" required><br><br>
+        <button type="submit">افزودن</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">بازگشت به صفحه اصلی</a>
+</body>
+</html>
